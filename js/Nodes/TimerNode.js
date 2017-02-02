@@ -3,13 +3,14 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "../BaseObjects/Transform", "./NodeTypes", "./Node"], function (require, exports, Transform_1, NodeTypes_1, Node_1) {
+define(["require", "exports", "../BaseObjects/Transform", "./NodeTypes", "./Node", "../Systems/Defaults"], function (require, exports, Transform_1, NodeTypes_1, Node_1, Defaults_1) {
     "use strict";
     var TimerNode = (function (_super) {
         __extends(TimerNode, _super);
-        function TimerNode(name, transform, loops) {
+        function TimerNode(name, transform, loops, imgPath) {
             if (transform === void 0) { transform = new Transform_1.default(); }
             if (loops === void 0) { loops = 1; }
+            if (imgPath === void 0) { imgPath = Defaults_1.default.defaultImage; }
             var _this = _super.call(this, name + "_Timer", transform, NodeTypes_1.NodeTypes.Timer) || this;
             _this.loops = loops || 1;
             return _this;

@@ -16,6 +16,7 @@ define(["require", "exports"], function (require, exports) {
             for (var objKey in this._objects) {
                 this._objects[objKey].Update();
             }
+            this.Draw();
             window.requestAnimationFrame(function () { _this.Update(); });
         };
         GameLoop.prototype.Draw = function () {

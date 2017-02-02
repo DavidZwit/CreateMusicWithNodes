@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "../BaseObjects/Renderer"], function (require, exports, Renderer_1) {
+define(["require", "exports", "../BaseObjects/Renderer", "../BaseObjects/Sprite"], function (require, exports, Renderer_1, Sprite_1) {
     "use strict";
     var HTMLRenderer = (function (_super) {
         __extends(HTMLRenderer, _super);
@@ -14,8 +14,18 @@ define(["require", "exports", "../BaseObjects/Renderer"], function (require, exp
             return _this;
         }
         HTMLRenderer.prototype.AddObject = function (obj) {
-            this._htmlObjects[obj.name] = document.createElement(obj.name);
-            this._objContainer.appendChild(this._htmlObjects[obj.name]);
+            if (obj instanceof Sprite_1.default == true) {
+                this._htmlObjects[obj.name] = document.createElement("IMG");
+                this._objContainer.appendChild(this._htmlObjects[obj.name]);
+                var spriteHTMLElement = this._htmlObjects[obj.name];
+                var spriteObj = obj;
+                spriteHTMLElement.src = spriteObj.imgPath;
+            }
+            else {
+                this._htmlObjects[obj.name] = document.createElement("div");
+                this._htmlObjects[obj.name].id = obj.name;
+                this._objContainer.appendChild(this._htmlObjects[obj.name]);
+            }
         };
         HTMLRenderer.prototype.RemoveObject = function (obj) {
             this._objContainer.removeChild(this._htmlObjects[obj.name]);
@@ -23,7 +33,6 @@ define(["require", "exports", "../BaseObjects/Renderer"], function (require, exp
         };
         HTMLRenderer.prototype.Draw = function () {
             for (var objKey in this._gameobjects) {
-                console.log(this._gameobjects[objKey], "drawing");
                 var obj = this._gameobjects[objKey];
                 var trans = obj.transform;
                 var htmlElement = this._htmlObjects[objKey];

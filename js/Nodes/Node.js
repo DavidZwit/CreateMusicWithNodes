@@ -3,14 +3,15 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "../BaseObjects/Gameobject", "../BaseObjects/Transform", "./NodeTypes"], function (require, exports, Gameobject_1, Transform_1, NodeTypes_1) {
+define(["require", "exports", "../BaseObjects/Sprite", "../BaseObjects/Transform", "./NodeTypes", "../Systems/Defaults"], function (require, exports, Sprite_1, Transform_1, NodeTypes_1, Defaults_1) {
     "use strict";
     var Node = (function (_super) {
         __extends(Node, _super);
-        function Node(name, transform, nodeType) {
+        function Node(name, transform, nodeType, imgPath) {
             if (transform === void 0) { transform = new Transform_1.default(); }
             if (nodeType === void 0) { nodeType = NodeTypes_1.NodeTypes.None; }
-            var _this = _super.call(this, name + "Node", transform) || this;
+            if (imgPath === void 0) { imgPath = Defaults_1.default.defaultImage; }
+            var _this = _super.call(this, name + "Node", transform, imgPath) || this;
             _this.nodeType = nodeType;
             _this.connectedNodes = [];
             return _this;
@@ -18,7 +19,7 @@ define(["require", "exports", "../BaseObjects/Gameobject", "../BaseObjects/Trans
         Node.prototype.Fire = function () {
         };
         return Node;
-    }(Gameobject_1.default));
+    }(Sprite_1.default));
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = Node;
 });

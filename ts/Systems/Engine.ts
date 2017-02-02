@@ -37,6 +37,8 @@ export default class GameLoop {
             this._objects[objKey].Update();
         }
 
+        this.Draw();
+
         window.requestAnimationFrame(() => {this.Update()});
     }
 
