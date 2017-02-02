@@ -3,6 +3,7 @@ define(["require", "exports", "./Transform"], function (require, exports, Transf
     var GameObject = (function () {
         function GameObject(name, transform) {
             if (transform === void 0) { transform = new Transform_1.default(); }
+            this.name = "";
             this.name = name + "_obj";
             this.transform = transform;
         }
@@ -14,7 +15,7 @@ define(["require", "exports", "./Transform"], function (require, exports, Transf
         };
         return GameObject;
     }());
-    GameObject.OBJECTS = { obj: GameObject };
+    GameObject.OBJECTS = {};
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = GameObject;
 });

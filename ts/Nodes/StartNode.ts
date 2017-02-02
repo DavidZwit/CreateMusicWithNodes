@@ -12,6 +12,6 @@ export default class StartNode extends Node {
     }
 
     Update () {
-        console.log("START NODE!!! FUCK YESS");
+        
     }
 }

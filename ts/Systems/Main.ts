@@ -47,7 +47,6 @@ module Engine {
      */
     for (let objKey in Hierarchy) {
 
-        console.log(Hierarchy[objKey]);
         Instantiate<GameObject>(Hierarchy[objKey]);
     }
 

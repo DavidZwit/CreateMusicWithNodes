@@ -6,11 +6,11 @@ import Transform from "./Transform";
 export default class GameObject {
 
     //THE object loop with all the gameobjects in the game
-    static OBJECTS : {} = {obj : GameObject};
+    static OBJECTS : {} = {};
     //The transform which a gameobject has
     public  transform : Transform;
     //The name of a gameobject to make it unique from others
-    public name : string;
+    public name : string = "";
 
     constructor (name : string, transform : Transform = new Transform()) {
 

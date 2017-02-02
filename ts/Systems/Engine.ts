@@ -21,27 +21,28 @@ export default class GameLoop {
     Start () {
 
         for (let objKey in this._objects) {
-            console.log(this);
 
             this._objects[objKey].Start();
         }
 
-
-        this.Update(); //Start the update loop;
+        //Start the update loop
+        this.Update();
     }
 
     /**
      * Looping Updates
      */
     Update () {
-
         for (let objKey in this._objects) {
             this._objects[objKey].Update();
         }
 
-        window.requestAnimationFrame(this.Update);
+        window.requestAnimationFrame(() => {this.Update()});
     }
 
+    /**
+     * Drawing the objects trough the renderer
+     */
     Draw () {
         this._renderer.Draw();
     }

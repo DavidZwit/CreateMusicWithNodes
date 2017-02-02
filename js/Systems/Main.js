@@ -19,7 +19,6 @@ define(["require", "exports", "./Engine", "./HTMLRenderer", "./Hierarchy", "../B
             Gameobject_1.default.OBJECTS[obj.name].Awake();
         }
         for (var objKey in Hierarchy_1.default) {
-            console.log(Hierarchy_1.default[objKey]);
             Instantiate(Hierarchy_1.default[objKey]);
         }
         loop.Start();

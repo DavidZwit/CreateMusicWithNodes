@@ -12,7 +12,6 @@ define(["require", "exports", "../BaseObjects/Transform", "./NodeTypes", "./Node
             return _super.call(this, name + "_Start", transform, NodeTypes_1.NodeTypes.Start) || this;
         }
         StartNode.prototype.Update = function () {
-            console.log("START NODE!!! FUCK YESS");
         };
         return StartNode;
     }(Node_1.default));

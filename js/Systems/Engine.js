@@ -7,16 +7,16 @@ define(["require", "exports"], function (require, exports) {
         }
         GameLoop.prototype.Start = function () {
             for (var objKey in this._objects) {
-                console.log(this);
                 this._objects[objKey].Start();
             }
             this.Update();
         };
         GameLoop.prototype.Update = function () {
+            var _this = this;
             for (var objKey in this._objects) {
                 this._objects[objKey].Update();
             }
-            window.requestAnimationFrame(this.Update);
+            window.requestAnimationFrame(function () { _this.Update(); });
         };
         GameLoop.prototype.Draw = function () {
             this._renderer.Draw();
