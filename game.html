@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+
+            body {
+                /* I hate white screens haha*/
+                background-color: rgb(20, 20, 20);
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!--The container for the game objects -->
+        <div id="elementsContainer"></div>
+
+        <!--Initializing the main script and the require file-->
+        <script src="js/require.js"
+                data-main="js/Systems/Main"></script>
+
+        <!--Adding the main function-->
+        <script>
+            require (['Main'], function () {
+                //The code
+            });
+        </script>
+
+    </body>
+</html>
